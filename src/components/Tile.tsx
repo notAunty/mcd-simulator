@@ -34,6 +34,8 @@ const Wrapper = styled.div`
   border: 1.5px solid #333;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.05) 1.95px 1.95px 2.6px; ;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TileTitle = styled.h4`

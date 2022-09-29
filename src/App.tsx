@@ -1,41 +1,69 @@
 import React from "react";
 import styled from "styled-components";
-import Tile from "./components/Tile";
+import { observer } from "mobx-react-lite";
 
-function App() {
+import { useStoreContext } from "./store/StoreContext";
+import BotList from "./components/BotList";
+import Tile from "./components/Tile";
+import { OrderType } from "./enum";
+import OrderList from "./components/OrderList";
+
+const App: React.FC = observer(() => {
+  const store = useStoreContext();
+
   return (
     <PageWrapper>
-      <Tile height={1} width={4} title="Bots" backgroundColor="lavender"></Tile>
-
-      <Tile
-        height={3}
-        width={2}
-        title="Pending"
-        backgroundColor="#FFEAC4"
-      ></Tile>
-      <Tile
-        height={3}
-        width={2}
-        title="Completed"
-        backgroundColor="#E0FFE0"
-      ></Tile>
-
-      <Tile height={1} width={1}>
-        <Button style={{ "--bg-color": "#FFF0F5" } as any}>Bot -</Button>
+      <Tile height={1} width={4} title="Bots" backgroundColor="lavender">
+        <BotList />
       </Tile>
-      <Tile height={1} width={1}>
-        <Button style={{ "--bg-color": "#E6E6FF" } as any}>Bot +</Button>
+
+      <Tile height={3} width={2} title="Pending" backgroundColor="#FFEAC4">
+        <OrderList types={[OrderType.VIP, OrderType.NORMAL]} />
+      </Tile>
+      <Tile height={3} width={2} backgroundColor="#E0FFE0">
+        <OrderList types={[OrderType.COMPLETED]} />
       </Tile>
 
       <Tile height={1} width={1}>
-        <Button style={{ "--bg-color": "#D0E0F0" } as any}>New<br/>Normal Order</Button>
+        <Button
+          style={{ "--bg-color": "#FFF0F5" } as any}
+          onClick={() => store.destroyBot()}
+        >
+          Bot -
+        </Button>
       </Tile>
       <Tile height={1} width={1}>
-        <Button style={{ "--bg-color": "#DFEFFF" } as any}>New<br/>VIP Order</Button>
+        <Button
+          style={{ "--bg-color": "#E6E6FF" } as any}
+          onClick={() => store.createBot()}
+        >
+          Bot +
+        </Button>
+      </Tile>
+
+      <Tile height={1} width={1}>
+        <Button
+          style={{ "--bg-color": "#D0E0F0" } as any}
+          onClick={() => store.createOrder(OrderType.NORMAL)}
+        >
+          New
+          <br />
+          Normal Order
+        </Button>
+      </Tile>
+      <Tile height={1} width={1}>
+        <Button
+          style={{ "--bg-color": "#DFEFFF" } as any}
+          onClick={() => store.createOrder(OrderType.VIP)}
+        >
+          New
+          <br />
+          VIP Order
+        </Button>
       </Tile>
     </PageWrapper>
   );
-}
+});
 
 const PageWrapper = styled.div`
   height: 100%;

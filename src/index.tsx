@@ -1,19 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { IconContext } from "react-icons";
 import { ThemeProvider } from "styled-components";
 
-import App from './App';
-import { GlobalStyle, theme } from './styles/global_styles';
-
+import App from "./App";
+import { StoreProvider } from "./store/StoreContext";
+import { GlobalStyle, theme } from "./styles/global_styles";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <App />
+      <IconContext.Provider value={{ color: "#666", style: {
+        justifySelf: 'center',
+        height: '32px',
+      } }}>
+        <StoreProvider>
+          <App />
+        </StoreProvider>
+      </IconContext.Provider>
     </ThemeProvider>
   </React.StrictMode>
 );
