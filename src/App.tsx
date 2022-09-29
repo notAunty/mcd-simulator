@@ -18,14 +18,15 @@ const App: React.FC = observer(() => {
       </Tile>
 
       <Tile height={3} width={2} title="Pending" backgroundColor="#FFEAC4">
-        <OrderList types={[OrderType.VIP, OrderType.NORMAL]} />
+        <OrderList id={"pending-area"} types={[OrderType.VIP, OrderType.NORMAL]} />
       </Tile>
       <Tile height={3} width={2} backgroundColor="#E0FFE0">
-        <OrderList types={[OrderType.COMPLETED]} />
+        <OrderList id={"completed-area"} types={[OrderType.COMPLETED]} />
       </Tile>
 
       <Tile height={1} width={1}>
         <Button
+          id={"bot-destroy"}
           style={{ "--bg-color": "#FFF0F5" } as any}
           onClick={() => store.destroyBot()}
         >
@@ -34,6 +35,7 @@ const App: React.FC = observer(() => {
       </Tile>
       <Tile height={1} width={1}>
         <Button
+          id={"bot-create"}
           style={{ "--bg-color": "#E6E6FF" } as any}
           onClick={() => store.createBot()}
         >
@@ -43,6 +45,7 @@ const App: React.FC = observer(() => {
 
       <Tile height={1} width={1}>
         <Button
+          id={"normal-order"}
           style={{ "--bg-color": "#D0E0F0" } as any}
           onClick={() => store.createOrder(OrderType.NORMAL)}
         >
@@ -53,6 +56,7 @@ const App: React.FC = observer(() => {
       </Tile>
       <Tile height={1} width={1}>
         <Button
+          id={"vip-order"}
           style={{ "--bg-color": "#DFEFFF" } as any}
           onClick={() => store.createOrder(OrderType.VIP)}
         >

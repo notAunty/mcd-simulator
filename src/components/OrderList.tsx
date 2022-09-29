@@ -4,6 +4,7 @@ import { observer } from "mobx-react-lite";
 import { useStoreContext } from "../store/StoreContext";
 
 interface Props {
+  id: string;
   types: string[];
 }
 
@@ -11,9 +12,9 @@ const OrderList: React.FC<Props> = observer((props) => {
   const store = useStoreContext();
 
   return (
-    <Wrapper>
+    <Wrapper id={props.id}>
       {props.types.map((type) => (
-        <TypeList key={type}>
+        <TypeList key={type} id={`${type}-list`}>
           <p>{type}</p>
           {store.ordersType[type].map((orderId) => (
             <OrderItem key={orderId}>

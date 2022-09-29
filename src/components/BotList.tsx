@@ -8,9 +8,9 @@ const BotList: React.FC = observer(() => {
   const store = useStoreContext();
 
   return (
-    <OuterWrapper >
+    <OuterWrapper id={"bot-list"}>
       {store.bots.map((bot, idx) => (
-        <InnerWrapper key={idx}>
+        <InnerWrapper key={idx} id={`bot-${idx+1}`}>
           <MdSmartToy />
           {bot.orderId && <p>{bot.orderId}</p>}
         </InnerWrapper>
