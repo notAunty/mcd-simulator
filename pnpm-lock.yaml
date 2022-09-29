@@ -10,8 +10,10 @@ specifiers:
   '@types/react-dom': ^18.0.6
   '@types/styled-components': ^5.1.26
   mobx: ^6.6.2
+  mobx-react-lite: ^3.4.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-icons: ^4.4.0
   react-scripts: 5.0.1
   styled-components: ^5.3.5
   typescript: ^4.8.3
@@ -22,8 +24,10 @@ dependencies:
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 13.5.0
   mobx: 6.6.2
+  mobx-react-lite: 3.4.0_qrr2ojv4n7h7ey2xj7njerqqr4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-icons: 4.4.0_react@18.2.0
   react-scripts: 5.0.1_n4upredruleo7vrbwztywbpoxq
   styled-components: 5.3.5_biqbaboplfbrettd7655fr4n2y
   typescript: 4.8.3
@@ -6757,6 +6761,24 @@ packages:
       minimist: 1.2.6
     dev: false
 
+  /mobx-react-lite/3.4.0_qrr2ojv4n7h7ey2xj7njerqqr4:
+    resolution: {integrity: sha512-bRuZp3C0itgLKHu/VNxi66DN/XVkQG7xtoBVWxpvC5FhAqbOCP21+nPhULjnzEqd7xBMybp6KwytdUpZKEgpIQ==}
+    peerDependencies:
+      mobx: ^6.1.0
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      mobx: 6.6.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /mobx/6.6.2:
     resolution: {integrity: sha512-IOpS0bf3+hXIhDIy+CmlNMBfFpAbHS0aVHcNC+xH/TFYEKIIVDKNYRh9eKlXuVfJ1iRKAp0cRVmO145CyJAMVQ==}
     dev: false
@@ -8129,6 +8151,14 @@ packages:
 
   /react-error-overlay/6.0.11:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
+    dev: false
+
+  /react-icons/4.4.0_react@18.2.0:
+    resolution: {integrity: sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:
