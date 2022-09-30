@@ -1,4 +1,4 @@
-## FeedMe Software Engineer Take Home Assignment
+## McDonald's Simulator
 Below is a take home assignment before the interview of the position. You are required to
 1. Understand the situation and use case. You may contact the interviewer for further clarification.
 2. Implement the requirement with your most effective tools.
@@ -7,6 +7,38 @@ Below is a take home assignment before the interview of the position. You are re
 5. Commit into your own github and share your repo with the interviewer.
 6. Bring the source code and functioning prototype to the interview session.
 
+### Architecture
+* Frontend - React with mobx, styled-components
+* Testing - Cypress
+
+### Getting started
+1. Clone the repository
+1. Install dependencies with `npm install` or `pnpm install`
+1. Test drive the application using `npm run start`
+1. Start the E2E test while the app is running using `npm run test:show`
+
+### Project stucture
+```
+|
+|- package.json           : dependencies, scripts and version info
+|- .nvmrc                 : the recommended node.js version
+|- cypress.config.js      : Cypress test config
+|- cypress/
+|   |- e2e/
+|   |   |- test_run.cy.ts : the E2E tests
+|   |- support/
+|       |- commands.ts    : config for individual steps of the tests
+|- src
+    |- components/        : store the individual components of the app
+    |- enum/              : store the enums used in the app
+    |- store/             : the app's state and bussiness logic
+    |- styles/            : CSS stylesheets
+    |- App.tsx            : the app's main page
+    |- index.tsx          : the app's entrypoint
+```
+
+
+---
 ### Situation
 McDonald is transforming their business during COVID-19. They wish to build the automated cooking bots to reduce workforce and increase their efficiency. As one of the software engineer in the project. You task is to create an order controller which handle the order control flow. 
 
@@ -28,9 +60,9 @@ As below is part of the user story:
 
 ### Functioning Prototype
 You may demostrate your final funtioning prototype with **one (only)** of the following method:
-- CLI application
-- UI application
-- E2E test case
+- [ ] CLI application
+- [ ] UI application
+- [x] E2E test case
 
 ### Tips on completing this task
 - Testing, testing and testing. Make sure the prototype is functioning and meeting all the requirements.

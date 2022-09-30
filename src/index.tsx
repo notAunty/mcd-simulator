@@ -7,6 +7,11 @@ import App from "./App";
 import { StoreProvider } from "./store/StoreContext";
 import { GlobalStyle, theme } from "./styles/global_styles";
 
+const iconSettings = {
+  color: "#666",
+  style: { justifySelf: "center", height: "32px" },
+};
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -14,10 +19,7 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <IconContext.Provider value={{ color: "#666", style: {
-        justifySelf: 'center',
-        height: '32px',
-      } }}>
+      <IconContext.Provider value={iconSettings}>
         <StoreProvider>
           <App />
         </StoreProvider>

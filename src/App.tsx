@@ -18,7 +18,10 @@ const App: React.FC = observer(() => {
       </Tile>
 
       <Tile height={3} width={2} title="Pending" backgroundColor="#FFEAC4">
-        <OrderList id={"pending-area"} types={[OrderType.VIP, OrderType.NORMAL]} />
+        <OrderList
+          id={"pending-area"}
+          types={[OrderType.VIP, OrderType.NORMAL]}
+        />
       </Tile>
       <Tile height={3} width={2} backgroundColor="#E0FFE0">
         <OrderList id={"completed-area"} types={[OrderType.COMPLETED]} />
@@ -49,9 +52,7 @@ const App: React.FC = observer(() => {
           style={{ "--bg-color": "#D0E0F0" } as any}
           onClick={() => store.createOrder(OrderType.NORMAL)}
         >
-          New
-          <br />
-          Normal Order
+          New <br /> Normal Order
         </Button>
       </Tile>
       <Tile height={1} width={1}>
@@ -60,9 +61,7 @@ const App: React.FC = observer(() => {
           style={{ "--bg-color": "#DFEFFF" } as any}
           onClick={() => store.createOrder(OrderType.VIP)}
         >
-          New
-          <br />
-          VIP Order
+          New <br /> VIP Order
         </Button>
       </Tile>
     </PageWrapper>
