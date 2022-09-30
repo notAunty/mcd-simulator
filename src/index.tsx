@@ -9,7 +9,7 @@ import { GlobalStyle, theme } from "./styles/global_styles";
 
 const iconSettings = {
   color: "#666",
-  style: { justifySelf: "center", height: "32px" },
+  style: { justifySelf: "center", height: "24px" },
 };
 
 const root = ReactDOM.createRoot(

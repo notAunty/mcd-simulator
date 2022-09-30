@@ -11,8 +11,11 @@ const BotList: React.FC = observer(() => {
     <OuterWrapper id={"bot-list"}>
       {store.bots.map((bot, idx) => (
         <InnerWrapper key={idx} id={`bot-${idx+1}`}>
-          <MdSmartToy />
-          {bot.orderId && <p>{bot.orderId}</p>}
+          <div style={{display: "flex", gap: 8}}>
+            <MdSmartToy />
+            <span>#{idx+1}</span>
+          </div>
+          {bot.orderId && <p>Ord#{bot.orderId}</p>}
         </InnerWrapper>
       ))}
     </OuterWrapper>
