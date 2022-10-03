@@ -13,7 +13,12 @@ export default class Store {
   }
 
   lastOrderId: number = 0;
-  bots: Array<{ orderId: number | null; timer: NodeJS.Timer | null }> = [];
+  bots: Array<{
+    orderId: number | null;
+    timer: NodeJS.Timer | null;
+    intervalTimer?: any;
+    secondsLeft?: number;
+  }> = [];
 
   orders: {
     [id: number]: {
@@ -44,6 +49,7 @@ export default class Store {
   destroyBot() {
     const botToBeRemoved = this.bots.pop();
     if (botToBeRemoved?.timer) clearTimeout(botToBeRemoved.timer);
+    if (botToBeRemoved?.intervalTimer) clearInterval(botToBeRemoved.intervalTimer);
     if (botToBeRemoved?.orderId) {
       const id = botToBeRemoved.orderId;
       this.orders[id].botId = null;
@@ -94,6 +100,12 @@ export default class Store {
         () => this.orderComplete(nextOrderId),
         10 * 1000
       );
+
+      this.bots[botIdx].intervalTimer = setInterval(() => {
+        const sec = this.bots[botIdx].secondsLeft;
+        if (sec !== undefined) this.bots[botIdx].secondsLeft = sec - 1;
+        else this.bots[botIdx].secondsLeft = 9;
+      }, 1000);
     }
   }
 
@@ -119,9 +131,13 @@ export default class Store {
     };
 
     // Update `this.bots`
-    this.bots[botHandlingThisOrder] = { orderId: null, timer: null };
+    clearInterval(this.bots[botHandlingThisOrder].intervalTimer);
+    this.bots[botHandlingThisOrder] = Store.newBot();
 
     // Call matchBotOrder to start a new cycle
     this.matchBotOrder();
+  }
+  static newBot() {
+    return { orderId: null, timer: null, intervalTimer: null, secondsLeft: undefined };
   }
 }
