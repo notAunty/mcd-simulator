@@ -1,4 +1,5 @@
 import { action, makeAutoObservable } from "mobx";
+import { orderTypeSecRequires } from "../constants";
 import { OrderType } from "../enum";
 
 export default class Store {
@@ -95,16 +96,19 @@ export default class Store {
       // Set botIndex -> orderId
       this.bots[botIdx].orderId = nextOrderId;
 
+      // 
+      const secRequired = orderTypeSecRequires[this.orders[nextOrderId].type];
+
       // Set a timer to handle completion
       this.bots[botIdx].timer = setTimeout(
         () => this.orderComplete(nextOrderId),
-        10 * 1000
+        secRequired * 1000
       );
 
       this.bots[botIdx].intervalTimer = setInterval(() => {
         const sec = this.bots[botIdx].secondsLeft;
         if (sec !== undefined) this.bots[botIdx].secondsLeft = sec - 1;
-        else this.bots[botIdx].secondsLeft = 9;
+        else this.bots[botIdx].secondsLeft = secRequired - 1;
       }, 1000);
     }
   }
