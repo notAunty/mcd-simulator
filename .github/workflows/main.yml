@@ -26,16 +26,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Prettier
-        run: npx prettier --write 'src/**/*.{ts,tsx}'
-
-      - name: Commit Prettier changes
-        run: |
-          git config --global user.email "github-bot@example.com"
-          git config --global user.name "github-bot"
-          git add ./src/
-          git commit -m "prettier"
-          git push origin HEAD:${{ github.head_ref }}
+      # - name: Run Prettier
+      #   run: npx prettier --write 'src/**/*.{ts,tsx}'
+      # 
+      # - name: Commit Prettier changes
+      #   run: |
+      #     git config --global user.email "github-bot@example.com"
+      #     git config --global user.name "github-bot"
+      #     git add ./src/
+      #     git commit -m "prettier"
+      #     git push origin HEAD:${{ github.head_ref }}
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
