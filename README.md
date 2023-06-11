@@ -1,5 +1,5 @@
 ## McDonald's Simulator
-Below is a take home assignment before the interview of the position. You are required to
+Requirements:
 1. Understand the situation and use case. You may contact the interviewer for further clarification.
 2. Implement the requirement with your most effective tools.
 3. Complete the requirement and perform your own testing.
